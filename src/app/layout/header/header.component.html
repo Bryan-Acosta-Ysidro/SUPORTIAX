@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="container nav-wrap">
+    <app-logo />
+
+    <button class="menu-toggle" type="button" (click)="alternarMenu()"
+            [attr.aria-expanded]="menuAbierto" aria-controls="menu-principal">
+      {{ menuAbierto ? 'Cerrar' : 'Menú' }}
+    </button>
+
+    <nav id="menu-principal" class="main-nav" [class.open]="menuAbierto" aria-label="Navegación principal">
+      <a routerLink="/inicio" routerLinkActive="active" (click)="cerrarMenu()">Inicio</a>
+      <a routerLink="/servicios" routerLinkActive="active" (click)="cerrarMenu()">Servicios</a>
+      <a routerLink="/nosotros" routerLinkActive="active" (click)="cerrarMenu()">Nosotros</a>
+      <a class="nav-cta" routerLink="/contacto" routerLinkActive="active" (click)="cerrarMenu()">Solicitar atención</a>
+    </nav>
+  </div>
+</header>
