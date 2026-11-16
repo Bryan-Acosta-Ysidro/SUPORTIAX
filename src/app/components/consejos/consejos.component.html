@@ -1,0 +1,15 @@
+@if (cargando) {
+  <p class="notice">Cargando consejos...</p>
+}
+@if (error) {
+  <p class="notice">No pudimos cargar los consejos. Actualiza la página o inténtalo más tarde.</p>
+}
+<div class="tips-grid">
+  @for (consejo of consejos; track consejo.id) {
+    <article class="tip">
+      <span class="tag">{{ consejo.categoria }}</span>
+      <h3>{{ consejo.titulo }}</h3>
+      <p>{{ consejo.descripcion }}</p>
+    </article>
+  }
+</div>

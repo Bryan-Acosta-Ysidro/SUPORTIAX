@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "categoria": "Temperatura",
+    "titulo": "Usa tu laptop sobre una superficie firme",
+    "descripcion": "La cama o los cojines tapan las rejillas de ventilación. Si el equipo se calienta, se vuelve lento y sus piezas se desgastan antes."
+  },
+  {
+    "id": 2,
+    "categoria": "Batería",
+    "titulo": "No la dejes llegar siempre a 0 %",
+    "descripcion": "Cárgala cuando esté entre 20 % y 30 %. Descargarla por completo con frecuencia reduce la vida útil de la batería."
+  },
+  {
+    "id": 3,
+    "categoria": "Respaldo",
+    "titulo": "Guarda una copia de tus archivos importantes",
+    "descripcion": "Usa una memoria USB o una carpeta en la nube. Si el disco falla, no perderás tus documentos, fotos ni trabajos."
+  },
+  {
+    "id": 4,
+    "categoria": "Seguridad",
+    "titulo": "Instala programas solo desde sitios oficiales",
+    "descripcion": "Los programas descargados de páginas desconocidas pueden traer virus que ponen lento el equipo o roban tus contraseñas."
+  },
+  {
+    "id": 5,
+    "categoria": "Limpieza",
+    "titulo": "Limpia el teclado y la pantalla con el equipo apagado",
+    "descripcion": "Usa un paño seco de microfibra. Evita el alcohol directo sobre la pantalla y nunca rocíes líquidos sobre el teclado."
+  },
+  {
+    "id": 6,
+    "categoria": "Electricidad",
+    "titulo": "Conecta tu computadora a un estabilizador",
+    "descripcion": "Las subidas y bajadas de tensión pueden dañar la fuente o la placa. Un estabilizador o un supresor de picos protege tu equipo."
+  }
+]
