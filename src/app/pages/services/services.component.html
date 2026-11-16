@@ -1,0 +1,30 @@
+<section class="page-hero">
+  <div class="container">
+    <h1>Nuestros servicios</h1>
+    <p>Elige el servicio que necesitas. En cada uno verás qué incluye, cuánto demora y el precio referencial.</p>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="cards three">
+    @for (servicio of servicios; track servicio.id) {
+      <article class="card">
+        <app-service-icon [tipo]="servicio.id" />
+        <h3>{{ servicio.nombre }}</h3>
+        <p>{{ servicio.resumen }}</p>
+        <span class="price">{{ servicio.precioDesde }}</span>
+        <a [routerLink]="['/servicios', servicio.id]">Ver qué incluye</a>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container">
+    <div class="section-heading">
+      <h2>¿No sabes qué servicio elegir?</h2>
+      <p>Cuéntanos qué le pasa a tu equipo y te recomendamos la mejor opción antes de cualquier trabajo.</p>
+    </div>
+    <a class="btn btn-primary" routerLink="/contacto">Solicitar atención</a>
+  </div>
+</section>

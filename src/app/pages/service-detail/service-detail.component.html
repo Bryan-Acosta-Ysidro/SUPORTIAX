@@ -1,0 +1,35 @@
+@if (servicio) {
+  <section class="page-hero">
+    <div class="container">
+      <p class="breadcrumb"><a routerLink="/servicios">Servicios</a> / {{ servicio.nombre }}</p>
+      <h1>{{ servicio.nombre }}</h1>
+      <p>{{ servicio.descripcion }}</p>
+    </div>
+  </section>
+
+  <section class="section container detail-grid">
+    <div>
+      <h2>¿Qué incluye?</h2>
+      <ul class="check-list">
+        @for (item of servicio.incluye; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+      <a routerLink="/servicios">Volver a servicios</a>
+    </div>
+
+    <aside class="side-box">
+      <dl>
+        <dt>Tiempo estimado</dt>
+        <dd>{{ servicio.duracion }}</dd>
+        <dt>Precio referencial</dt>
+        <dd>{{ servicio.precioDesde }}</dd>
+        <dt>Recomendado para</dt>
+        <dd>{{ servicio.recomendadoPara }}</dd>
+      </dl>
+      <a class="btn btn-primary full" routerLink="/contacto" [queryParams]="{ servicio: servicio.id }">
+        Solicitar este servicio
+      </a>
+    </aside>
+  </section>
+}
