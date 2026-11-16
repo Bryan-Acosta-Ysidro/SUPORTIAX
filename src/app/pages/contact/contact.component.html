@@ -1,0 +1,73 @@
+<section class="page-hero">
+  <div class="container">
+    <h1>Solicita atención para tu equipo</h1>
+    <p>Completa el formulario y te escribiremos para coordinar el diagnóstico o el servicio que necesitas.</p>
+  </div>
+</section>
+
+<section class="section container contact-layout">
+  <div>
+    <h2>¿Cómo funciona?</h2>
+    <p>Revisamos tu solicitud y te contactamos por correo o celular dentro del día hábil siguiente para confirmar el horario de atención.</p>
+    <p>Los campos marcados con * son obligatorios.</p>
+    <div class="contact-note">
+      <strong>Cuida tus datos</strong>
+      <p>Solo pedimos lo necesario para responder tu solicitud. Nunca te pediremos contraseñas ni datos bancarios por este formulario.</p>
+    </div>
+  </div>
+
+  <form class="contact-form" [formGroup]="form" (ngSubmit)="enviar()" novalidate>
+    <label>Nombre completo *
+      <input type="text" formControlName="nombre" placeholder="Ej. Ana Torres" autocomplete="name" [class.invalid]="tieneError('nombre')">
+      @if (tieneError('nombre')) { <small class="error">Ingresa tu nombre (mínimo 3 caracteres).</small> }
+    </label>
+
+    <div class="form-row">
+      <label>Correo electrónico *
+        <input type="email" formControlName="correo" placeholder="nombre@correo.com" autocomplete="email" [class.invalid]="tieneError('correo')">
+        @if (tieneError('correo')) { <small class="error">Ingresa un correo válido.</small> }
+      </label>
+      <label>Celular *
+        <input type="tel" formControlName="celular" placeholder="987654321" maxlength="9" autocomplete="tel" [class.invalid]="tieneError('celular')">
+        @if (tieneError('celular')) { <small class="error">Ingresa un celular de 9 dígitos que empiece con 9.</small> }
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label>Tipo de equipo *
+        <select formControlName="tipoEquipo" [class.invalid]="tieneError('tipoEquipo')">
+          <option value="">Selecciona</option>
+          @for (tipo of tiposEquipo; track tipo) { <option [value]="tipo">{{ tipo }}</option> }
+        </select>
+        @if (tieneError('tipoEquipo')) { <small class="error">Selecciona el tipo de equipo.</small> }
+      </label>
+      <label>Servicio *
+        <select formControlName="servicio" [class.invalid]="tieneError('servicio')">
+          <option value="">Selecciona</option>
+          @for (s of servicios; track s.id) { <option [value]="s.id">{{ s.nombre }}</option> }
+          <option value="no-seguro">No estoy seguro</option>
+        </select>
+        @if (tieneError('servicio')) { <small class="error">Selecciona un servicio.</small> }
+      </label>
+    </div>
+
+    <label>¿Qué le pasa a tu equipo? *
+      <textarea rows="4" formControlName="mensaje" [attr.maxlength]="maxMensaje"
+                placeholder="Ej. Mi laptop se apaga sola cuando abro varios programas." [class.invalid]="tieneError('mensaje')"></textarea>
+      <span class="counter">{{ form.controls.mensaje.value.length }}/{{ maxMensaje }}</span>
+      @if (tieneError('mensaje')) { <small class="error">Describe el problema con al menos 15 caracteres.</small> }
+    </label>
+
+    <label class="consent">
+      <input type="checkbox" formControlName="consentimiento">
+      <span>Acepto que Suportiax use mis datos solo para responder esta solicitud. *</span>
+    </label>
+    @if (tieneError('consentimiento')) { <small class="error">Debes aceptar el uso de tus datos para enviar la solicitud.</small> }
+
+    <button class="btn btn-primary full" type="submit">Enviar solicitud</button>
+
+    @if (enviadoPor()) {
+      <p class="success" role="status">Gracias, {{ enviadoPor() }}. Recibimos tu solicitud y te contactaremos para coordinar la atención.</p>
+    }
+  </form>
+</section>
